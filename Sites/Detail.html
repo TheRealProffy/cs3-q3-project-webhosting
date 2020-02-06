@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<style>
+			/* Fonts used. */
+			@font-face {
+				font-family: "Century Gothic";
+				src: url("../Fonts/Century%20Gothic%20(Regular).ttf");
+			}
+
+			@font-face {
+				font-family: "Century Gothic Bold";
+				src: url("../Fonts/Century%20Gothic%20(Bold).ttf");
+			}
+
+			@font-face {
+				font-family: "Roboto";
+				src: url("../Fonts/Roboto%20(Regular).ttf");
+			}
+
+			/* Breakpoint #1: Large Devices	[Viewport Width: 1366px] */
+			body {
+				margin: auto;
+			}
+
+			/* Header */
+			header {
+				height: 4.39vw;
+				width: 100%;
+				position: sticky;
+				top: 0;
+				background: white;
+				display: grid;
+				grid-template-columns: 16fr repeat(4, 3fr);
+				align-items: center;
+				margin: auto;
+				font-family: "Roboto";
+				font-weight: bold;
+				z-index: 3;
+				cursor: default;
+			}
+
+			header > div, header > a {
+				border-bottom: 0.225vw solid white;
+			}
+
+			header .webtitle {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				padding-left: 1.46vw;
+				font-size: 1.46vw;
+			}
+
+			header a {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #D3D3D3;
+				font-size: 1.10vw;
+				text-decoration: none;
+			}
+
+			/* Coded so no need to change. */
+			a#A:hover, a#B:hover, a#C:hover, a#D:hover {
+				transition: 0.5s;
+				color: black;
+				border-bottom: 0.225vw solid blue;
+			}
+
+			header > a:not(:hover) {
+				transition: 0.5s;
+				color: #D3D3D3;
+				border-bottom: 0.225vw solid white;
+			}
+
+			header:not(:hover) > .current, header .webtitle:hover ~ .current {
+				transition: 0.5s;
+				color: #228B22;
+				border-bottom: 0.225vw solid #228B22;
+			}
+
+			/* Main, Splash */
+			main#splash {
+				position: relative;
+				height: 35.1vw;
+				overflow: hidden;
+				font-family: "Century Gothic Bold";
+			}
+
+			main#splash img {
+				width: 100%;
+				transform: scale(1.3);
+				filter: blur(0.695vw);
+				z-index: 1;
+			}
+
+			main#splash .tagtext {
+				position: absolute;
+				width: 100%;
+				top: 8.05vw;
+				text-align: center;
+				cursor: default;
+				z-index: 2;
+			}
+
+			main#splash .tagtext .tagquote {
+				font-size: 4.39vw;
+				color: white;
+			}
+
+			main#splash .tagtext .tagline {
+				font-size: 1.76vw;
+				color: orange;
+			}
+
+			/* Main, Detail */
+			main#detail {
+				display: flex;
+				flex-direction: column;
+				padding: 0.366vw 3.66vw 1.10vw 3.66vw;
+			}
+
+			main#detail .tip {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 1.46vw 0 1.46vw 0;
+				cursor: default;
+			}
+
+			main#detail .tip:first-child {
+				margin: 0 0 1.46vw 0;
+			}
+
+			.tip .number {
+				width: 8.78vw;
+				height: 8.78vw;
+				position: relative;
+				top: 4.39vw;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: #E86100;
+				border-radius: 50%;
+				font-family: "Roboto";
+				font-weight: bold;
+				font-size: 4.39vw;
+				color: white;
+			}
+
+			.tip .number:not(:hover), .tip .number:not(:active) {
+				transition: 0.5s;
+			}
+
+			.tip .number:not(:active) + .text .head {
+				transition: 0.5s;
+			}
+
+			.tip .number:hover {
+				transform: scale(1.2);
+				transition: 0.5s;
+			}
+
+			.tip .number:active {
+				background: #228B22;
+				transform: scale(0.9);
+				transition: 0.5s;
+			}
+
+			.tip .number:active + .text .head {
+				color: #FFA500;
+				transition: 0.5s;
+			}
+
+			.tip .text {
+				background: #212121;
+				border-radius: 2.56vw;
+				padding: 5.49vw 2.56vw 1.10vw 2.56vw;
+				color: white;
+			}
+
+			.tip .text .head {
+				font-family: "Century Gothic Bold";
+				font-size: 2.93vw;
+				text-align: center;
+			}
+
+			.tip .text .body {
+				font-family: "Century Gothic";
+				font-size: 1.46vw;
+				text-align: justify;
+			}
+
+			.text .body div {
+				margin: 1.46vw 0 1.46vw 0;
+				line-height: 1.3;
+			}
+
+			.text .body div span {
+				font-weight: bold;
+				color: yellow;
+			}
+
+			/* Footer */
+			footer {
+				position: sticky;
+				bottom: 0;
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				background: white;
+				margin: auto;
+				padding: 0.732vw;
+				font-family: "Roboto";
+				font-weight: bold;
+				font-size: 1.24vw;
+				z-index: 3;
+				cursor: default;
+			}
+
+			footer:not(:hover) {
+				background: white;
+				color: rgba(0, 0, 0, 0.2);
+				transition: 1s;
+			}
+
+			footer:hover {
+				background: yellow;
+				color: rgba(0, 0, 0, 1);
+				transition: 1s;
+			}
+
+			footer .details {
+				height: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			footer .minor {
+				padding-left: 0.366vw;
+				justify-content: flex-start;
+			}
+
+			footer .title {
+				padding-right: 0.366vw;
+				justify-content: flex-end;
+			}
+
+			/* ---------------------------------------------------------------- */
+
+			/* Breakpoint #2: Smaller than Medium Devices [Max-Width: 991px] */
+			@media screen and (max-width: 991px) {
+				footer {
+					position: static;
+				}
+				
+				footer:not(:hover), footer:hover {
+					background: yellow;
+					color: rgba(0, 0, 0, 1);
+				}
+			}
+
+			/* Breakpoint #3: Phones [Viewport Width: 767px] */
+			@media screen and (max-width: 767px) {
+				header .webtitle {
+					font-size: 1.56vw;
+				}
+				
+				header a {
+					font-size: 1.30vw;
+				}
+				
+				main#splash img {
+					transform: scale(1.4);
+				}
+				
+				main#detail {
+					padding: 0.366vw 3.66vw 3.66vw 3.66vw;
+				}
+				
+				main#detail .tip {
+					margin: 0.366vw 0 0.366vw 0;
+				}
+				
+				.tip .number {
+					font-size: 5.56vw;
+				}
+				
+				.tip .text .head {
+					font-size: 3.95vw;
+					color: #FFA500;
+				}
+				
+				.tip .text .body {
+					font-size: 1.90vw;
+				}
+				
+				footer {
+					font-size: 1.43vw;
+				}
+			}
+		</style>
+		
+		<title> Rb-14: The Site Proper </title>
+	</head>
+	
+	<body>
+		<header>
+			<div class="webtitle"> CS3 Q2 Project Metaguide </div>
+			
+			<!-- Redirecting links. -->
+			<a id="A" href="../Home.html"> Home </a>
+			<a id="B" class="current"> Details </a>					
+			<a id="C" href="Author.html"> Website </a>					
+			<a id="D" href="Filler.html"> Contact </a>
+			<!-- End. -->
+		</header>
+		
+		<main id="splash">
+			<img src="../Images/Detail_BG.jpg" />
+			
+			<div class="tagtext">
+				<div class="tagquote"> EVERYTHING YOU </div>
+				<div class="tagquote"> CAN IMAGINE IS REAL. </div>
+				
+				<div class="tagline"> Believe with all your heart. Achieve with all your might. </div>
+			</div>
+		</main>
+		
+		<main id="detail">
+			<div class="tip">
+				<div class="number"> 1 </div>
+				
+				<div class="text">
+					<div class="head"> On Interactive Links </div>
+					
+					<div class="body">
+						<div>
+							Have you ever looked at those blue words and blue underlines? Yeah, same.
+							It's just a pain to see them in Word documents. How about in websites
+							made of HTML and CSS? Can we make them more gorgeous and clickbait-y?
+						</div>
+						
+						<div>
+							Well, you can definitely style your links in CSS. However, you have to
+							specify a pseudoclass for this, which is <span>:link</span>. This is
+							placed adjacent to the anchor tag, like <span>a:link</span>. This will
+							only work for unvisited links. If you want to modify visited links too,
+							you can also add <span>a:visited</span>.
+						</div>
+						
+						<div>
+							After specifying the pseudoclasses, set the <span>text-decoration</span>
+							property under both unvisited and visited links to none to remove the 
+							unwanted underline. Next, change the font color using the <span>color
+							</span>property to change the blue color of the text.
+						</div>
+						
+						<div>
+							Taking these a step further, you can add the pseudoclasses <span>:active
+							</span> and <span>:hover</span> for interactions upon clicking and
+							hovering, respectively. Adding a transition time will make those
+							changes smooth.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip">
+				<div class="number"> 2 </div>
+				
+				<div class="text">
+					<div class="head"> Position Perspective </div>
+					
+					<div class="body">
+						<div>
+							In this particular section, I will only discuss five of the six different
+							values of the position property. These are static, absolute, relative,
+							fixed, and sticky.
+						</div>
+						
+						<div>						
+							<span>position: static;</span> — the default setting for elements. 
+							The flow will behave as	ordered in the source code. Positional 
+							properties will be disregarded for this certain type.
+						</div>
+						
+						<div>						
+							<span>position: absolute;</span> — removes the element from the flow of
+							the document. It is always relative to a parent whose position is non-static.
+							If there are none, it will automatically be positioned relative to the document.
+						</div>
+						
+						<div>						
+							<span>position: relative;</span> — modifies an element's position relative
+							to its original location. Positional properties will work and nudge the element.
+						</div>
+						
+						<div>
+							<span>position: fixed;</span> — functions like absolute positioning. It is always
+							relative to the document and stays on-screen even with the movement of
+							scrollbars.
+						</div>
+						
+						<div>
+							<span>position: sticky;</span> — will initially function like relative positioning
+							but will function like fixed positioning upon scrolling to a certain extent. See
+							the header and the footer of this site as reference.
+						</div>
+						
+						<div>
+							With these, you can either do a trial-and-error to see what type works best
+							for your element or idealize before executing your plan.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip">
+				<div class="number"> 3 </div>
+				
+				<div class="text">
+					<div class="head"> Not Hover Over Hovering? </div>
+					
+					<div class="body">
+						<div>
+							Have you noticed that after letting your mouse cursor touch
+							an element to experience the hover effect, the effect abruptly
+							wears off? It's kind of sudden. However, if you want to 
+							make it smoother by adding some transition time before returning
+							to its original style, then this tip is for you!
+						</div>
+						
+						<div>
+							A negation pseudoclass can be used to make this more smooth. 
+							This is declared by using <span>:not</span>. However, you also
+							need to specify the class which is supposed to be negated. For
+							instance, if you want to add an animation after hovering, you
+							can use <span>:not(:hover)</span>.
+						</div>
+						
+						<div>
+							This can also be used to exclude certain classes. For instance,
+							if you want to exclude <span>div#ter</span>, you can use <span>
+							:not(#ter)</span>. 
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip">
+				<div class="number"> 4 </div>
+				
+				<div class="text">
+					<div class="head"> Align-meant </div>
+					
+					<div class="body">
+						<div>
+							Horizontally aligning a text or an image is really easy. Inserting
+							the <span>text-align</span> property will solve it. However, 
+							vertically aligning an element will be a challenge if you don't know
+							how to approach it.
+						</div>
+						
+						<div>
+							A common misconception to vertically aligning elements is using
+							the <span>vertical-align</span> property; similarly, using the 
+							text-align property on everything doesn't quite solve your problem
+							on alignment and yield an intended result.
+						</div>
+						
+						<div>
+							There are two approaches when it comes to aligning items both
+							vertically and horizontally. The solution is actually changing 
+							the <span>display</span> property instead of the default block
+							value. You can change it to <span>display: flex;</span> or
+							<span>display: grid;</span> to gain the ability of aligning
+							properly and simultaneously.
+						</div>
+						
+						<div>
+							When using <span>display: flex;</span>, the alignment will
+							depend on the <span>flex-direction</span> property. By default,
+							this is set to row value. With the default setting, the <span>
+							justify-content</span> and the <span>align-items</span> property
+							will align elements horizontally and vertically, respectively.
+							However, when this is set to column value, the properties will
+							align elements inversely to the row value. These will apply even
+							with the row-reverse and column-reverse values.
+						</div>
+						
+						<div>
+							When using <span>display: grid;</span>, there are two properties
+							which will align the elements decently. These are the <span> 
+							justify-items</span> property and the <span>align-items</span>
+							property. Think of the first as aligning on the x-axis, while the
+							second as aligning on the y-axis.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip">		
+				<div class="number"> 5 </div>
+				
+				<div class="text">
+					<div class="head"> Stick to the Surprise! </div>
+					
+					<div class="body">
+						<div>
+							Remember the <span>position: sticky;</span> discussed earlier?
+							How about <span>position: fixed;</span>? These work similarly,
+							the only difference is that the former can appear later, whereas
+							the latter always appears on-screen.
+						</div>
+						
+						<div>
+							You can choose to select <span>position: sticky;</span> if you
+							want headers that stay on-screen to hint the audience of your
+							site about the topic and to not get lost in reading. You can also
+							choose this property like the header designed in this website to 
+							occupy a space without obstructing other elements, since it
+							is designed to be like relative positioning until a certain
+							extent where it imitates fixed positioning. Do note, however,
+							that once the parent is gone, so is the child whose position
+							is sticky. The only exception is if the parent is the <span>
+							body</span>.
+						</div>
+						
+						<div>
+							Selecting <span>position: fixed;</span> is best for advertisements
+							on site and retaining any elements on-screen. This has a tendency
+							to block other elements.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip">
+				<div class="number"> 6 </div>
+				
+				<div class="text">
+					<div class="head"> Contact Campaign </div>
+					
+					<div class="body">
+						<div>
+							Simply putting <span> input </span> tags on a contact section
+							is boring and dull. Let's spice it up!
+						</div>
+						
+						<div>
+							You may want to add the <span>padding</span> and the <span>margin
+							</span>properties on those input whose type involves text. You
+							can select certain types of input by declaring <span>input[type]
+							</span> in the site's CSS.
+						</div>
+						
+						<div>
+							Customizing the <span>submit</span> button? Bring it on! You can
+							modify the word inside a submit button by typing <span>value="SEND"
+							</span> as an example. Add some hover and active effects and you've
+							got yourself a gorgeous button.
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="tip"> 
+				<div class="number"> 7 </div>
+				
+				<div class="text">
+					<div class="head"> Striving for Style </div>
+					
+					<div class="body">
+						<div>
+							With all these inspirations, you'll start thinking, "Hey,
+							maybe I'll remove all of these elements of—". No, I
+							recommend you don't. Just stick with your ideas and
+							focus on styling these. Maybe you'll be better off
+							doing this rather than starting from square one.
+						</div>
+						
+						<div>
+							Remember: <span>"Believe in all your heart."</span> Put your best
+							interest first when it comes to styling your websites.
+							Have fun in making your project!
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<footer>
+			<div class="minor details"> Rb-14: Francis Raphael Q. Sales </div>
+			<div class="title details"> Section 2 | All the Details </div>
+		</footer>
+		
+		<script> /* No input. Used to prevent any transitions upon loading. */ </script>
+	</body>
+</html>
