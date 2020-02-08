@@ -1,0 +1,303 @@
+/* CSS for the Website Proper */
+
+/* Fonts used. */
+@font-face {
+	font-family: "Century Gothic";
+	src: url("../../Fonts/Century%20Gothic%20(Regular).ttf");
+}
+
+@font-face {
+	font-family: "Century Gothic Bold";
+	src: url("../../Fonts/Century%20Gothic%20(Bold).ttf");
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../../Fonts/Roboto%20(Regular).ttf");
+}
+
+/* Breakpoint #1: Large Devices	[Viewport Width: 1366px] */
+body {
+	margin: auto;
+}
+
+/* Header */
+header {
+	height: 4.39vw;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	background: white;
+	display: grid;
+	grid-template-columns: 16fr repeat(4, 3fr);
+	align-items: center;
+	margin: auto;
+	font-family: "Roboto";
+	font-weight: bold;
+	z-index: 3;
+	cursor: default;
+}
+
+header > div, header > a {
+	border-bottom: 0.225vw solid white;
+}
+
+header .webtitle {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 1.46vw;
+	font-size: 1.46vw;
+}
+
+header a {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #D3D3D3;
+	font-size: 1.10vw;
+	text-decoration: none;
+}
+
+/* Coded so no need to change. */
+a#A:hover, a#B:hover, a#C:hover, a#D:hover {
+	transition: 0.5s;
+	color: black;
+	border-bottom: 0.225vw solid blue;
+}
+
+header > a:not(:hover) {
+	transition: 0.5s;
+	color: #D3D3D3;
+	border-bottom: 0.225vw solid white;
+}
+
+header:not(:hover) > .current, header .webtitle:hover ~ .current {
+	transition: 0.5s;
+	color: #228B22;
+	border-bottom: 0.225vw solid #228B22;
+}
+/* Header finished. Can be copy pasted for other pages. */
+
+/* Main, Splash */
+main#splash {
+	position: relative;
+	height: 35.1vw;
+	overflow: hidden;
+	font-family: "Century Gothic Bold";
+}
+
+main#splash img {
+	width: 100%;
+	transform: scale(1.3);
+	filter: blur(0.695vw);
+	z-index: 1;
+}
+
+main#splash .tagtext {
+	position: absolute;
+	width: 100%;
+	top: 8.05vw;
+	text-align: center;
+	cursor: default;
+	z-index: 2;
+}
+
+main#splash .tagtext .tagquote {
+	font-size: 4.39vw;
+	color: white;
+}
+
+main#splash .tagtext .tagline {
+	font-size: 1.76vw;
+	color: orange;
+}
+
+/* Main, Detail */
+main#detail {
+	display: flex;
+	flex-direction: column;
+	padding: 0.366vw 3.66vw 1.10vw 3.66vw;
+}
+
+main#detail .tip {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 1.46vw 0 1.46vw 0;
+	cursor: default;
+}
+
+main#detail .tip:first-child {
+	margin: 0 0 1.46vw 0;
+}
+
+.tip .number {
+	width: 8.78vw;
+	height: 8.78vw;
+	position: relative;
+	top: 4.39vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #E86100;
+	border-radius: 50%;
+	font-family: "Roboto";
+	font-weight: bold;
+	font-size: 4.39vw;
+	color: white;
+}
+
+.tip .number:not(:hover), .tip .number:not(:active) {
+	transition: 0.5s;
+}
+
+.tip .number:not(:active) + .text .head {
+	transition: 0.5s;
+}
+
+.tip .number:hover {
+	transform: scale(1.2);
+	transition: 0.5s;
+}
+
+.tip .number:active {
+	background: #228B22;
+	transform: scale(0.9);
+	transition: 0.5s;
+}
+
+.tip .number:active + .text .head {
+	color: #FFA500;
+	transition: 0.5s;
+}
+
+.tip .text {
+	background: #212121;
+	border-radius: 2.56vw;
+	padding: 5.49vw 2.56vw 1.10vw 2.56vw;
+	color: white;
+}
+
+.tip .text .head {
+	font-family: "Century Gothic Bold";
+	font-size: 2.93vw;
+	text-align: center;
+}
+
+.tip .text .body {
+	font-family: "Century Gothic";
+	font-size: 1.46vw;
+	text-align: justify;
+}
+
+.text .body div {
+	margin: 1.46vw 0 1.46vw 0;
+	line-height: 1.3;
+}
+
+.text .body div span {
+	font-weight: bold;
+	color: yellow;
+}
+/* Main finished. */
+
+/* Footer */
+footer {
+	position: sticky;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: white;
+	margin: auto;
+	padding: 0.732vw;
+	font-family: "Roboto";
+	font-weight: bold;
+	font-size: 1.24vw;
+	z-index: 3;
+	cursor: default;
+}
+
+footer:not(:hover) {
+	background: white;
+	color: rgba(0, 0, 0, 0.2);
+	transition: 1s;
+}
+
+footer:hover {
+	background: yellow;
+	color: rgba(0, 0, 0, 1);
+	transition: 1s;
+}
+
+footer .details {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+footer .minor {
+	padding-left: 0.366vw;
+	justify-content: flex-start;
+}
+
+footer .title {
+	padding-right: 0.366vw;
+	justify-content: flex-end;
+}
+/* Footer finished. Can be copy pasted for other pages. */
+
+/* ---------------------------------------------------------------- */
+
+/* Breakpoint #2: Smaller than Medium Devices [Max-Width: 991px] */
+@media screen and (max-width: 991px) {
+	footer {
+		position: static;
+	}
+	
+	footer:not(:hover), footer:hover {
+		background: yellow;
+		color: rgba(0, 0, 0, 1);
+	}
+}
+
+/* Breakpoint #3: Phones [Viewport Width: 767px] */
+@media screen and (max-width: 767px) {
+	header .webtitle {
+		font-size: 1.56vw;
+	}
+	
+	header a {
+		font-size: 1.30vw;
+	}
+	
+	main#splash img {
+		transform: scale(1.4);
+	}
+	
+	main#detail {
+		padding: 0.366vw 3.66vw 3.66vw 3.66vw;
+	}
+	
+	main#detail .tip {
+		margin: 0.366vw 0 0.366vw 0;
+	}
+	
+	.tip .number {
+		font-size: 5.56vw;
+	}
+	
+	.tip .text .head {
+		font-size: 3.95vw;
+		color: #FFA500;
+	}
+	
+	.tip .text .body {
+		font-size: 1.90vw;
+	}
+	
+	footer {
+		font-size: 1.43vw;
+	}
+}

@@ -1,0 +1,390 @@
+/* CSS for the Website Section */
+
+/* Fonts used. */
+@font-face {
+	font-family: "Century Gothic";
+	src: url("../../Fonts/Century%20Gothic%20(Regular).ttf");
+}
+
+@font-face {
+	font-family: "Century Gothic Bold";
+	src: url("../../Fonts/Century%20Gothic%20(Bold).ttf");
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../../Fonts/Roboto%20(Regular).ttf");
+}
+
+/* Breakpoint #1: Large Devices	[Viewport Width: 1366px] */
+body {
+	margin: auto;
+}
+
+/* Header */
+header {
+	height: 4.39vw;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	background: white;
+	display: grid;
+	grid-template-columns: 16fr repeat(4, 3fr);
+	align-items: center;
+	margin: auto;
+	font-family: "Roboto";
+	font-weight: bold;
+	z-index: 3;
+	cursor: default;
+}
+
+header > div, header > a {
+	border-bottom: 0.225vw solid white;
+}
+
+header .webtitle {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 1.46vw;
+	font-size: 1.46vw;
+}
+
+header a {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #D3D3D3;
+	font-size: 1.10vw;
+	text-decoration: none;
+}
+
+/* Coded so no need to change. */
+a#A:hover, a#B:hover, a#C:hover, a#D:hover {
+	transition: 0.5s;
+	color: black;
+	border-bottom: 0.225vw solid blue;
+}
+
+header > a:not(:hover) {
+	transition: 0.5s;
+	color: #D3D3D3;
+	border-bottom: 0.225vw solid white;
+}
+
+header:not(:hover) > .current, header .webtitle:hover ~ .current {
+	transition: 0.5s;
+	color: #228B22;
+	border-bottom: 0.225vw solid #228B22;
+}
+/* Header finished. Can be copy pasted for other pages. */
+
+/* Main, Splash */
+main#splash {
+	position: relative;
+	height: 35.1vw;
+	overflow: hidden;
+	font-family: "Century Gothic Bold";
+}
+
+main#splash img {
+	width: 100%;
+	transform: scale(1.3);
+	filter: blur(0.299vw);
+	z-index: 1;
+}
+
+main#splash .tagtext {
+	position: absolute;
+	width: 100%;
+	top: 8.05vw;
+	text-align: center;
+	cursor: default;
+	z-index: 2;
+}
+
+main#splash .tagtext .tagquote {
+	font-size: 4.39vw;
+	color: white;
+}
+
+main#splash .tagtext .tagline {
+	font-size: 1.76vw;
+	color: orange;
+}
+
+/* Main, About */
+main#about {
+	padding: 1.10vw 6.59vw 1.10vw 6.59vw;
+	font-family: "Century Gothic";
+	color: white;
+	cursor: default;
+}
+
+main#about .profile {
+	display: grid;
+	grid-template-columns: 2fr 5fr;
+	justify-items: center;
+	align-items: center;
+	background: #343434;
+	margin: 1.10vw 0 1.10vw 0;
+	border-radius: 2.56vw;
+	padding: 2.20vw;
+}
+
+.profile img {
+	width: 80%;
+	border-radius: 50%;
+	border: 0.366vw solid white;
+	padding: 0.732vw;
+}
+
+.profile img:not(:hover), .profile img:not(:active) {
+	transition: 0.5s;
+}
+
+.profile img:hover {
+	transform: scale(1.1);
+	transition: 0.5s;
+}
+
+.profile img:active {
+	border: 0.366vw solid #5656FF;
+	transform: scale(0.9);
+	transition: 0.5s;
+}
+
+.profile .text {
+	padding: 1.10vw;
+	text-align: justify;
+}
+
+.profile .text .heading {
+	font-family: "Century Gothic Bold";
+	font-size: 1.83vw;
+}
+
+.profile .text .sub {
+	font-size: 1.46vw;
+	color: #FFB000;
+}
+
+.profile .text .body {
+	margin-top: 0.586vw;
+	font-size: 1.24vw;
+}
+
+main#about .website {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin-top: 2.56vw;
+}
+
+.website .index {
+	background: #343434;
+	border-radius: 2.20vw;
+	padding: 1.83vw;
+	text-align: center;
+}
+
+.website .index:first-child {
+	margin: 0.366vw 1.46vw 0.366vw 0;
+}
+
+.website .index:last-child {
+	margin: 0.366vw 0 0.366vw 1.46vw;
+}
+
+.index .preview {
+	height: 14.6vw;
+	margin-bottom: 0.732vw;
+	border: 0.366vw solid white;
+	border-radius: 1.46vw;
+	overflow: hidden;
+}
+
+.index .preview img {
+	width: 100%;
+}
+
+.index .preview img:not(:hover) {
+	transform: scale(1.2);
+	transition: 1.5s;
+}
+
+.index .preview img:hover {
+	transform: scale(1.8);
+	transition: 1.5s;
+}
+
+.index .text {
+	width: 32.9vw;
+	margin: auto;
+}
+
+.index .text .heading {
+	font-family: "Century Gothic Bold";
+	font-size: 1.61vw;
+}
+
+.index .text .sub {
+	font-size: 1.32vw;
+	color: #FFB000;
+}
+
+.index .text .body {
+	margin-top: 0.732vw;
+	font-size: 1.21vw;
+}
+/* Main finished. */
+
+/* Footer */
+footer {
+	position: sticky;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: white;
+	margin: auto;
+	padding: 0.732vw;
+	font-family: "Roboto";
+	font-weight: bold;
+	font-size: 1.24vw;
+	z-index: 3;
+	cursor: default;
+}
+
+footer:not(:hover) {
+	background: white;
+	color: rgba(0, 0, 0, 0.2);
+	transition: 1s;
+}
+
+footer:hover {
+	background: yellow;
+	color: rgba(0, 0, 0, 1);
+	transition: 1s;
+}
+
+footer .details {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+footer .minor {
+	padding-left: 0.366vw;
+	justify-content: flex-start;
+}
+
+footer .title {
+	padding-right: 0.366vw;
+	justify-content: flex-end;
+}
+/* Footer finished. Can be copy pasted for other pages. */
+
+/* ---------------------------------------------------------------- */
+
+/* Breakpoint #2: Smaller than Medium Devices [Max-Width: 991px] */
+@media screen and (max-width: 991px) {
+	footer {
+		position: static;
+	}
+	
+	footer:not(:hover), footer:hover {
+		background: yellow;
+		color: rgba(0, 0, 0, 1);
+	}
+}
+
+/* Breakpoint #3: Phones [Viewport Width: 767px] */
+@media screen and (max-width: 767px) {
+	header .webtitle {
+		font-size: 1.56vw;
+	}
+	
+	header a {
+		font-size: 1.30vw;
+	}
+	
+	main#splash img {
+		transform: scale(1.4);
+	}
+	
+	main#about {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	
+	main#about .profile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0.366vw 1.46vw 0.366vw 0;
+	}
+	
+	.profile img {
+		width: 29.3vw;
+		margin-bottom: 0.439vw;
+	}
+	
+	.profile img:hover {
+		transform: scale(1.05);
+		transition: 0.5s;
+	}
+	
+	.profile img:active {
+		transform: scale(0.9);
+		transition: 0.5s;
+	}
+	
+	.profile .text {
+		padding: 0.549vw;
+		text-align: center;
+	}
+	
+	.profile .text .heading {
+		font-size: 2.64vw;
+	}
+	
+	.profile .text .sub {
+		font-size: 2.05vw;
+	}
+	
+	.profile .text .body {
+		font-size: 1.39vw;
+	}
+	
+	main#about .website {
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(2, 1fr);
+		margin: 0.366vw 0 0.366vw 1.46vw;
+	}
+	
+	.website .index:first-child {
+		margin: 0;
+		margin-bottom: 0.732vw;
+	}
+	
+	.website .index:last-child {
+		margin: 0;
+		margin-top: 0.732vw;
+	}
+		
+	.index .text .heading {
+		font-size: 2.05vw;
+	}
+	
+	.index .text .sub {
+		font-size: 1.61vw;
+	}
+	
+	.index .text .body {
+		font-size: 1.24vw;
+	}
+
+	footer {
+		font-size: 1.43vw;
+	}
+}
